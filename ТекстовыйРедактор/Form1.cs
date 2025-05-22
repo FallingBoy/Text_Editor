@@ -15,6 +15,7 @@ namespace ТекстовыйРедактор
     {
         private string _currentFilePath = null;
         private bool _isModified = false;
+        private FindReplaceForm _findReplaceForm;
 
         public Form1()
         {
@@ -144,6 +145,28 @@ namespace ТекстовыйРедактор
         private void Form1_Load(object sender, EventArgs e)
         {
             UpdateStatusBar();
+        }
+
+        private void поискИЗаменаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_findReplaceForm == null || _findReplaceForm.IsDisposed)
+            {
+                _findReplaceForm = new FindReplaceForm(richTextBox1);
+                _findReplaceForm.Show(this);
+            }
+            else
+            {
+                _findReplaceForm.Focus();
+            }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.F))
+            {
+                поискИЗаменаToolStripMenuItem_Click(null, null);
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }
