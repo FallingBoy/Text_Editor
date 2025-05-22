@@ -1,8 +1,6 @@
-﻿using System.Windows.Forms;
-
-namespace ТекстовыйРедактор
+﻿namespace ТекстовыйРедактор
 {
-    partial class Form1
+    partial class BaseForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -32,7 +30,6 @@ namespace ТекстовыйРедактор
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.новыйФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьКакToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,8 +38,8 @@ namespace ТекстовыйРедактор
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.поискИЗаменаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -60,7 +57,6 @@ namespace ТекстовыйРедактор
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.новыйФайлToolStripMenuItem,
             this.toolStripMenuItem2,
             this.сохранитьToolStripMenuItem,
             this.сохранитьКакToolStripMenuItem});
@@ -68,38 +64,26 @@ namespace ТекстовыйРедактор
             this.toolStripMenuItem1.Size = new System.Drawing.Size(48, 20);
             this.toolStripMenuItem1.Text = "Файл";
             // 
-            // новыйФайлToolStripMenuItem
-            // 
-            this.новыйФайлToolStripMenuItem.Name = "новыйФайлToolStripMenuItem";
-            this.новыйФайлToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.новыйФайлToolStripMenuItem.Text = "Новый файл";
-            this.новыйФайлToolStripMenuItem.Click += new System.EventHandler(this.новыйФайлToolStripMenuItem_Click);
-            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(153, 22);
             this.toolStripMenuItem2.Text = "Открыть файл";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
-            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // сохранитьКакToolStripMenuItem
             // 
             this.сохранитьКакToolStripMenuItem.Name = "сохранитьКакToolStripMenuItem";
             this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.сохранитьКакToolStripMenuItem.Text = "Сохранить как";
-            this.сохранитьКакToolStripMenuItem.Click += new System.EventHandler(this.сохранитьКакToolStripMenuItem_Click);
             // 
             // правкаToolStripMenuItem
             // 
-            this.правкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.поискИЗаменаToolStripMenuItem});
             this.правкаToolStripMenuItem.Name = "правкаToolStripMenuItem";
             this.правкаToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.правкаToolStripMenuItem.Text = "Правка";
@@ -120,17 +104,11 @@ namespace ТекстовыйРедактор
             this.richTextBox1.Size = new System.Drawing.Size(800, 421);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
-            this.richTextBox1.SelectionChanged += new System.EventHandler(this.richTextBox1_SelectionChanged);
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Items.Clear();
-            this.statusStrip1.Items.AddRange(new ToolStripItem[] {
-                new ToolStripStatusLabel() { Name = "lblLines", Text = "Строки: 0" },
-                new ToolStripStatusLabel() { Name = "lblChars", Text = "Символы: 0" },
-                new ToolStripStatusLabel() { Name = "lblPosition", Text = "Строка: 1 | Колонка: 1" }
-            });
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 428);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(800, 22);
@@ -140,16 +118,10 @@ namespace ТекстовыйРедактор
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // поискИЗаменаToolStripMenuItem
-            // 
-            this.поискИЗаменаToolStripMenuItem.Name = "поискИЗаменаToolStripMenuItem";
-            this.поискИЗаменаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.поискИЗаменаToolStripMenuItem.Text = "Поиск и замена";
-            this.поискИЗаменаToolStripMenuItem.Click += new System.EventHandler(this.поискИЗаменаToolStripMenuItem_Click);
-            // 
-            // Form1
+            // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,12 +130,12 @@ namespace ТекстовыйРедактор
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "BaseForm";
             this.Text = "Текстовый редактор";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,8 +153,6 @@ namespace ТекстовыйРедактор
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripMenuItem новыйФайлToolStripMenuItem;
-        private ToolStripMenuItem поискИЗаменаToolStripMenuItem;
     }
 }
 
